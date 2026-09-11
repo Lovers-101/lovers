@@ -4,6 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>KIPM Confession ❤️ | Same Campus, Different Stories</title>
+<script>
+(function(){
+  try{
+    var t=localStorage.getItem('kipm-theme');
+    if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))
+      document.documentElement.classList.add('dark');
+  }catch(e){}
+})();
+</script>
+
   <meta name="description" content="KIPM Confession — a respectful college community space for anonymous feelings, crushes and coffee connections." />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
@@ -23,6 +33,20 @@
       --shadow:0 25px 70px rgba(76,31,27,.13);
     }
 
+    html.dark{
+      --bg:#160d0b;--surface:rgba(40,24,20,.82);--brown:#fff4ee;--brown2:#f2d4ca;
+      --cream:#39211c;--muted:#c9aaa2;--line:rgba(255,238,230,.11);
+      --shadow:0 16px 42px rgba(0,0,0,.28);
+    }
+    html.dark body{background:
+      radial-gradient(circle at 12% 12%,rgba(255,111,145,.12),transparent 25%),
+      radial-gradient(circle at 90% 20%,rgba(242,179,93,.08),transparent 24%),#160d0b}
+    html.dark .nav{background:rgba(22,13,11,.78);border-color:rgba(255,255,255,.08)}
+    html.dark .nav-links a{color:#c9aaa2}
+    htmlhtml.dark .btn-secondary,html.dark .btn-secondary{background:rgba(255,255,255,.06);color:var(--brown)}
+    html.dark .term,html.dark .step,html.dark .card,html.dark .rule{background:rgba(40,24,20,.72)}
+    html.dark .eyebrow{background:rgba(255,255,255,.05)}
+    html.dark .notice{background:#321b22;color:#f5cbd4;border-color:#65303c}
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
@@ -49,7 +73,7 @@
       padding:16px 5%;
       display:flex; align-items:center; justify-content:space-between;
       background:rgba(255,247,244,.72);
-      backdrop-filter:blur(18px);
+      backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
       border-bottom:1px solid rgba(50,26,22,.07);
     }
     .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--brown);font-weight:800}
@@ -101,7 +125,7 @@
     .orb{
       position:absolute;width:370px;height:370px;border-radius:50%;
       background:radial-gradient(circle at 30% 25%,#ffd5df,#ff8faa 42%,#e94f6d 100%);
-      filter:blur(.2px);box-shadow:0 45px 90px rgba(233,79,109,.25);
+      box-shadow:0 25px 55px rgba(233,79,109,.20);
       animation:float 5s ease-in-out infinite;
     }
     .ring{
@@ -141,7 +165,7 @@
     .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .card{
       background:var(--surface);border:1px solid var(--line);border-radius:25px;padding:28px;
-      box-shadow:var(--shadow);backdrop-filter:blur(14px);
+      box-shadow:var(--shadow);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
       transition:transform .3s,box-shadow .3s;
     }
     .card:hover{transform:translateY(-8px) rotateX(2deg);box-shadow:0 35px 80px rgba(76,31,27,.17)}
@@ -193,6 +217,67 @@
 
     .top{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border:0;border-radius:50%;background:var(--brown);color:white;cursor:pointer;display:none;box-shadow:0 12px 30px rgba(50,26,22,.2)}
 
+
+    .orb,.ring,.logo-card,.heart{will-change:transform;transform:translateZ(0);backface-visibility:hidden}
+    @media (prefers-reduced-motion: reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+    }
+
+    .theme-btn{
+      width:40px;height:40px;border-radius:50%;border:1px solid var(--line);
+      background:rgba(255,255,255,.65);color:var(--brown);cursor:pointer;font-size:18px;
+      display:grid;place-items:center;transition:transform .2s,background .2s;
+    }
+    .theme-btn:hover{transform:rotate(12deg) scale(1.05)}
+    html.dark .theme-btn{background:rgba(255,255,255,.07)}
+    .vibe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .vibe{
+      min-height:145px;padding:23px;border-radius:24px;border:1px solid var(--line);
+      background:rgba(255,255,255,.68);position:relative;overflow:hidden;
+      transition:transform .25s;
+    }
+    .vibe:hover{transform:translateY(-5px)}
+    .vibe:after{content:"♥";position:absolute;right:-8px;bottom:-28px;font-size:100px;opacity:.06}
+    .vibe span{font-size:28px}.vibe h3{margin:12px 0 5px}.vibe p{color:var(--muted);font-size:13px;line-height:1.5}
+    .faq{display:grid;gap:12px;max-width:900px}
+    details{background:rgba(255,255,255,.68);border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+    summary{cursor:pointer;font-weight:800;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    summary:after{content:"+";float:right;color:var(--red);font-size:20px}
+    details[open] summary:after{content:"−"}
+    details p{color:var(--muted);font-size:14px;line-height:1.65;padding-top:12px}
+    .safety-banner{
+      margin-top:25px;padding:25px;border-radius:25px;background:linear-gradient(135deg,#fff0f3,#fff8f3);
+      border:1px solid #ffd6df;display:flex;gap:18px;align-items:flex-start
+    }
+    .safety-banner .big{font-size:30px}.safety-banner h3{margin-bottom:6px}.safety-banner p{color:#765e59;font-size:13px;line-height:1.6}
+    html.dark details,html.dark .vibe{background:rgba(40,24,20,.72)}
+    html.dark .safety-banner{background:#2d171c;border-color:#59303a}
+    html.dark .safety-banner p{color:#c9aaa2}
+    @media(max-width:900px){.vibe-grid{grid-template-columns:1fr 1fr}}
+    @media(max-width:620px){
+      .nav-cta{font-size:12px;padding:9px 12px}
+      .theme-btn{width:36px;height:36px}
+      .vibe-grid{grid-template-columns:1fr}
+      .safety-banner{display:block}
+      .safety-banner .big{margin-bottom:10px}
+    }
+
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+    .reveal.show{opacity:1;transform:none}
+    @media(max-width:700px){
+      .nav{padding:12px 4%}
+      .hero{min-height:auto;padding-top:105px;padding-bottom:30px}
+      .hero-copy{font-size:16px;line-height:1.6}
+      .scene{height:330px;perspective:none}
+      .orb{width:235px;height:235px}
+      .ring,.ring.r2{display:none}
+      .logo-card{width:225px;height:225px;transform:none!important}
+      .buttons .btn{width:100%;justify-content:center}
+      .card:hover{transform:none}
+      section{padding:62px 5%}
+    }
+
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
     @keyframes cardFloat{0%,100%{transform:rotateX(8deg) rotateY(-12deg) translateY(0)}50%{transform:rotateX(10deg) rotateY(-8deg) translateY(-13px)}}
     @keyframes spin{to{transform:rotateX(68deg) rotateZ(372deg)}}
@@ -206,7 +291,7 @@
       .rules-intro{position:relative;top:auto}
     }
     @media(max-width:620px){
-      .nav-links{display:none}.nav-cta{padding:10px 13px}
+      .nav-links{display:none}.nav{gap:8px}.nav-cta{white-space:nowrap}.nav-cta{padding:10px 13px}
       .hero{padding-left:5%;padding-right:5%}
       section{padding:75px 5%}
       .scene{height:370px}.orb{width:260px;height:260px}.ring{width:315px;height:315px}.ring.r2{width:250px;height:250px}
@@ -220,12 +305,12 @@
   <nav class="nav">
     <a class="brand" href="#home"><span class="brand-mark">♥</span><span>KIPM Confession</span></a>
     <div class="nav-links">
-      <a href="#about">About</a>
+      <a href="#about">About</a><a href="#features">Features</a><a href="#vibes">Vibes</a>
       <a href="#rules">Rules</a>
-      <a href="#terms">Terms</a>
+      <a href="#terms">Terms</a><a href="#standards">Standards</a><a href="#faq">FAQ</a><a href="#moderation">Moderation</a>
       <a href="#how">How it works</a>
     </div>
-    <a class="nav-cta" href="#rules">Read Rules</a>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">☾</button><a class="nav-cta" href="#rules">Read Rules</a>
   </nav>
 
   <main id="home">
@@ -295,6 +380,17 @@
           <div class="rule"><div class="rule-num">08</div><div><h4>No bullying or discrimination</h4><p>Hateful or discriminatory content based on identity, background, appearance or personal characteristics is prohibited.</p></div></div>
           <div class="rule"><div class="rule-num">09</div><div><h4>No pressure for a meetup</h4><p>Coffee requests should always be optional. Never reveal or demand someone’s location.</p></div></div>
           <div class="rule"><div class="rule-num">10</div><div><h4>Admin moderation</h4><p>The page team may reject, edit for safety, restrict or remove content that breaks these rules.</p></div></div>
+          <div class="rule"><div class="rule-num">11</div><div><h4>No doxxing</h4><p>Never share addresses, live locations, timetables, class schedules, vehicle details or identifying information.</p></div></div>
+          <div class="rule"><div class="rule-num">12</div><div><h4>No stalking</h4><p>Do not post routines, locations or instructions intended to track another student.</p></div></div>
+          <div class="rule"><div class="rule-num">13</div><div><h4>No threats or blackmail</h4><p>Threats to expose chats, photos, secrets or personal information are strictly prohibited.</p></div></div>
+          <div class="rule"><div class="rule-num">14</div><div><h4>No fake or misleading media</h4><p>Do not edit photos, screenshots, audio or video to falsely target or humiliate someone.</p></div></div>
+          <div class="rule"><div class="rule-num">15</div><div><h4>No spam</h4><p>Repeated submissions, copied posts, promotions and engagement bait may be rejected.</p></div></div>
+          <div class="rule"><div class="rule-num">16</div><div><h4>No academic misconduct</h4><p>Do not arrange cheating, leak exam material or impersonate faculty through this page.</p></div></div>
+          <div class="rule"><div class="rule-num">17</div><div><h4>No sexual or exploitative content</h4><p>Keep the community college-appropriate; never sexualize minors or share intimate content.</p></div></div>
+          <div class="rule"><div class="rule-num">18</div><div><h4>Respect faculty and staff</h4><p>No targeted humiliation, harassment or inappropriate speculation about faculty or staff.</p></div></div>
+          <div class="rule"><div class="rule-num">19</div><div><h4>Consent before sharing</h4><p>Get permission before posting identifiable photos, screenshots or private conversations.</p></div></div>
+          <div class="rule"><div class="rule-num">20</div><div><h4>One “no” means stop</h4><p>If someone asks you to stop or remove content, respect the boundary and do not escalate.</p></div></div>
+
         </div>
       </div>
     </section>
@@ -316,6 +412,21 @@
       <div class="notice"><strong>Important:</strong> Never post someone's private information or intimate content without consent. If a situation involves threats, coercion, stalking or immediate danger, seek help from trusted people and appropriate authorities.</div>
     </section>
 
+
+    <section id="standards">
+      <div class="section-head">
+        <div class="tag">Posting standards</div>
+        <h2>Before anything goes public.</h2>
+        <p>Keep the page fun without turning another student's private life into content.</p>
+      </div>
+      <div class="terms">
+        <div class="term"><h3>✅ Good to post</h3><ul><li>Respectful crushes and appreciation</li><li>Friendly, pressure-free coffee invitations</li><li>Positive campus memories and harmless humor</li><li>Messages that do not expose private information</li></ul></div>
+        <div class="term"><h3>❌ Not suitable</h3><ul><li>Phone numbers, addresses or live locations</li><li>Private chats, intimate images or secrets</li><li>Threats, insults, rumors or accusations</li><li>Posts meant to embarrass or pressure someone</li></ul></div>
+        <div class="term"><h3>🛡️ Admin decision</h3><p>Moderators may reject content when safety, privacy or respect is a concern. A safe rewrite may be requested.</p></div>
+        <div class="term"><h3>🌱 Golden rule</h3><p>Ask: “Would I be comfortable if this were about me?” If not, do not post it.</p></div>
+      </div>
+    </section>
+
     <section id="how">
       <div class="section-head">
         <div class="tag">How the community works</div>
@@ -331,6 +442,71 @@
     </section>
   </main>
 
+
+    <section id="vibes">
+      <div class="section-head">
+        <div class="tag">The KIPM vibe</div>
+        <h2>More than just crushes.</h2>
+        <p>The page can celebrate the whole college experience without inventing messages or exposing real people.</p>
+      </div>
+      <div class="vibe-grid">
+        <article class="vibe"><span>☕</span><h3>Coffee Moments</h3><p>Celebrate casual, respectful coffee conversations and campus friendships.</p></article>
+        <article class="vibe"><span>❤️</span><h3>Kind Words</h3><p>Appreciate classmates for being helpful, talented, funny or inspiring.</p></article>
+        <article class="vibe"><span>🎓</span><h3>Campus Life</h3><p>Share harmless college memories, events and positive experiences.</p></article>
+        <article class="vibe"><span>✨</span><h3>Good Energy</h3><p>Make the community feel welcoming instead of awkward or intimidating.</p></article>
+      </div>
+    </section>
+
+
+    <section id="features">
+      <div class="section-head">
+        <div class="tag">Community features</div>
+        <h2>Ideas that make the page feel alive.</h2>
+        <p>These features keep the experience interactive without creating fake messages or exposing students.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature"><div class="shine"></div><div class="f-icon">🌹</div><h3>Kindness Wall</h3><p>A future section for positive shout-outs: thank someone, appreciate a helpful classmate, or celebrate a small win.</p></article>
+        <article class="feature"><div class="shine"></div><div class="f-icon">☕</div><h3>Coffee Culture</h3><p>Promote friendly, public and pressure-free coffee meetups instead of pushing romantic expectations.</p></article>
+        <article class="feature"><div class="shine"></div><div class="f-icon">🎓</div><h3>Campus Moments</h3><p>Highlight events, clubs, achievements and harmless college memories alongside confession content.</p></article>
+        <article class="feature"><div class="shine"></div><div class="f-icon">🧡</div><h3>Boundary First</h3><p>Make “respect the answer” a core identity of the page. No means no; silence is not consent.</p></article>
+        <article class="feature"><div class="shine"></div><div class="f-icon">🚩</div><h3>Safety Flags</h3><p>Teach followers to recognize stalking, blackmail, threats, doxxing and coercion instead of normalizing them.</p></article>
+        <article class="feature"><div class="shine"></div><div class="f-icon">✨</div><h3>Weekly Theme</h3><p>Rotate harmless themes such as “Kindness Week”, “Coffee Week”, “College Memories” and “Best Study Spot”.</p></article>
+      </div>
+    </section>
+
+    <section id="moderation">
+      <div class="section-head">
+        <div class="tag">Moderation flow</div>
+        <h2>A clean process for admins.</h2>
+        <p>Use this checklist before anything is published on Instagram.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><b>1</b><h3>Receive</h3><p>Collect the submission privately and avoid publishing sender details.</p></div>
+        <div class="timeline-item"><b>2</b><h3>Review</h3><p>Check privacy, consent, harassment, safety and relevance.</p></div>
+        <div class="timeline-item"><b>3</b><h3>Decide</h3><p>Publish, safely rewrite, ask for clarification or reject.</p></div>
+        <div class="timeline-item"><b>4</b><h3>Protect</h3><p>If serious danger is involved, direct people toward appropriate real-world help.</p></div>
+      </div>
+      <div class="code-box"><code>MODERATION CHECK → Privacy ✓  Respect ✓  Consent ✓  Safety ✓  Relevance ✓</code></div>
+    </section>
+
+    <section id="faq">
+      <div class="section-head">
+        <div class="tag">Quick FAQ</div>
+        <h2>Questions students may have.</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Is KIPM Confession officially run by the college?</summary><p>Only say it is official if you have authorization. Otherwise clearly describe it as an independent/student-run community page.</p></details>
+        <details><summary>Can someone be forced to reply to a confession?</summary><p>No. A confession is not a demand for attention, friendship, a date or a relationship. Respect a person's choice.</p></details>
+        <details><summary>Can private screenshots be posted?</summary><p>Not without consent. Private conversations and personal media should stay private.</p></details>
+        <details><summary>What happens to unsafe submissions?</summary><p>They should be rejected or removed. Serious threats, blackmail, stalking or immediate danger should be taken to appropriate authorities rather than handled through public posts.</p></details>
+        <details><summary>Can the page post fake confessions for engagement?</summary><p>No. This website and the community concept are intentionally built around genuine, moderated participation rather than fabricated student messages.</p></details>
+      </div>
+      <div class="safety-banner">
+        <div class="big">🛡️</div>
+        <div><h3>Safety beats virality.</h3><p>If a post gets attention but puts someone at risk, it is not worth publishing. Protect privacy first, engagement second.</p></div>
+      </div>
+    </section>
+
   <footer class="footer">
     <div><h2>KIPM Confession ♥</h2><p>Dil ki baat • Coffee ke saath • Respect ke saath</p></div>
     <a class="pill" href="#home">Back to top ↑</a>
@@ -345,19 +521,58 @@
     });
     topBtn.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
 
-    // Small 3D tilt effect for the logo on desktop.
+    // Theme: safe, persistent and system-aware.
+    const themeBtn = document.getElementById("themeBtn");
+    const savedTheme = localStorage.getItem("kipm-theme");
+    const systemDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (savedTheme === "dark" || (!savedTheme && systemDark)) {
+      document.documentElement.classList.add("dark");
+    }
+    function syncThemeIcon(){
+      if (!themeBtn) return;
+      const dark = document.documentElement.classList.contains("dark");
+      themeBtn.textContent = dark ? "☀" : "☾";
+      themeBtn.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      themeBtn.title = dark ? "Light mode" : "Dark mode";
+    }
+    syncThemeIcon();
+    themeBtn?.addEventListener("click", () => {
+      const dark = document.documentElement.classList.toggle("dark");
+      localStorage.setItem("kipm-theme", dark ? "dark" : "light");
+      syncThemeIcon();
+    });
+
+
+    // Lightweight scroll reveal
+    if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const items = document.querySelectorAll(".section-head,.card,.rule,.term,.step,.rules-intro");
+      items.forEach(el => el.classList.add("reveal"));
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {rootMargin:"0px 0px -8% 0px", threshold:.08});
+      items.forEach(el => observer.observe(el));
+    }
+
+    // Lightweight 3D tilt, limited to one update per animation frame.
     const scene = document.querySelector(".scene");
     const logo = document.querySelector(".logo-card");
-    if (window.matchMedia("(pointer:fine)").matches) {
-      scene.addEventListener("mousemove", (e) => {
+    if (scene && logo && window.matchMedia("(pointer:fine) and (prefers-reduced-motion: no-preference)").matches) {
+      let raf = 0, mx = 0, my = 0;
+      scene.addEventListener("pointermove", e => {
         const r = scene.getBoundingClientRect();
-        const x = (e.clientX-r.left)/r.width-.5;
-        const y = (e.clientY-r.top)/r.height-.5;
-        logo.style.transform = `rotateX(${8-y*12}deg) rotateY(${-12+x*18}deg)`;
-      });
-      scene.addEventListener("mouseleave", () => {
-        logo.style.transform = "";
-      });
+        mx = (e.clientX-r.left)/r.width-.5;
+        my = (e.clientY-r.top)/r.height-.5;
+        if (!raf) raf = requestAnimationFrame(() => {
+          logo.style.transform = `translateZ(0) rotateX(${8-my*12}deg) rotateY(${-12+mx*18}deg)`;
+          raf = 0;
+        });
+      }, {passive:true});
+      scene.addEventListener("pointerleave", () => { logo.style.transform = ""; }, {passive:true});
     }
   </script>
 </body>
